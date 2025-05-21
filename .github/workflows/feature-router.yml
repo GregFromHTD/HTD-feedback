@@ -9,7 +9,7 @@ jobs:
     if: contains(github.event.issue.labels.*.name, 'feature')
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/add-new-issue-to-column@v2
+      - uses: kentaro-m/add-new-issue-to-column@main
         with:
           project_url: https://github.com/orgs/HowToDrink/projects/1
           column_name: Feature Request
