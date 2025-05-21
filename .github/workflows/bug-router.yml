@@ -1,0 +1,16 @@
+name: Route new bugs to project column
+
+on:
+  issues:
+    types: [opened, labeled]
+
+jobs:
+  move-to-project:
+    if: contains(github.event.issue.labels.*.name, 'bug')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-new-issue-to-column@v2
+        with:
+          project_url: https://github.com/orgs/HowToDrink/projects/1
+          column_name: Bug
+          github_token: ${{ secrets.GITHUB_TOKEN }}
